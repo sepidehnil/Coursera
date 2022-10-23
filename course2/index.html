@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+
+<form>
+	<fieldset>
+		 <legend>Form Verification</legend>
+	<label>write your email:
+		<input type="email" name="email1" id="email-add" required></label></br>
+	<label>repeat your email:
+		<input type="email" name="email2" id="email-repeat" required onchange="checkin()"></label></br>
+	<label for="nickname">nickname?
+		<input type="checkbox" name="nickname" id="nickname" onchange="nicknamecheck()" value="yes" checked="true"></label></br>
+	<div id="nick">
+	<label for="yesnick">Nickname:
+		<input type="text" name="yesnick" id="yesnick"></label></br>
+	</div>
+	<input type="submit" onclick="return checkin()">
+	</fieldset>
+	
+	
+</form>
+<script>
+	function checkin(){
+		var email1 = document.getElementById('email-add');
+		var email2 = document.getElementById('email-repeat');
+		if (email1.value != email2.value) {
+			alert("eamils doesnt match");
+			return false;
+
+		}
+	}
+	function nicknamecheck(){
+		if (document.getElementById('nickname').checked) {
+			document.getElementById('nick').style.display="inline";
+			document.getElementById('yesnick').setAttribute('required',true);
+
+
+		}
+		else{
+			document.getElementById('nick').style.display="none";
+			document.getElementById('yesnick').removeAttribute('required');
+			
+		}
+	}
+
+
+</script>
+</body>
+</html>
+
